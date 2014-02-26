@@ -4,7 +4,7 @@ CUDA_Matrix_Sum_Game
 4x4 matrix sum game
 
 
-Goal= for a matrix of size 4x4 , with each location having the possible values of 0-6 (inclusive), what configurations result in the maximum number of 4 column\row\diagonals which sum to the value of 10 ?
+Goal= for a matrix of size 4x4 , with each location having the possible values of 0-6 (inclusive), what configurations result in the maximum number of 4 columns\rows\diagonals which sum to the value of 10 ?
 
 Number of possible arrangements = 7^16 = 33,232,930,569,601 .
 
