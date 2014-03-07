@@ -8,7 +8,9 @@ Goal = for a matrix of size 4x4 , with each location having the possible values 
 
 Number of possible arrangements = 7^16 = 33,232,930,569,601.
 
-__Running time for Tesla K20c Windows 7__ = 2648761 ms or __44.14 minutes__.
+__Running time for Tesla K20c Windows 7__ = 2648761 ms or __44.14 minutes__.  
+
+__Running time for Tesla K40c Windows 7__ = 1513803 ms or __25.23 minutes__.
 
 Example output:
 
