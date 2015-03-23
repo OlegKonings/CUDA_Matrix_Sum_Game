@@ -78,7 +78,7 @@ void CPU_derive_from_num(long long num, int *Arr, const int digits,const int ran
 	}
 	Arr[0]=int(num);
 }
-__constant__ long long POWARR[17];
+
 
 template<int blockWork>
 __global__ void GPU_step0(int *best_val, long long *bnum){
@@ -97,13 +97,98 @@ __global__ void GPU_step0(int *best_val, long long *bnum){
 
 	for(;ii<reps;ii++){
 		pos=offset+long long(ii*THREADS);
-		for(jj=15;jj>0;jj--){
-			a=6LL;
-			while(a*POWARR[jj]>pos){a--;}
-			Arr[jj]=int(a);
-			pos-=a*POWARR[jj];
-		}
-		Arr[0]=int(pos);
+
+		a=28485369059658LL;
+		t2.x=6;
+		while(a>pos){a-=4747561509943LL;--t2.x;}
+		Arr[15]=t2.x;
+		pos-=a;//
+
+		a=4069338437094LL;
+		t2.x=6;
+		while(a>pos){a-=678223072849LL;--t2.x;}
+		Arr[14]=t2.x;
+		pos-=a;//
+
+		a=581334062442LL;
+		t2.x=6;
+		while(a>pos){a-=96889010407LL;--t2.x;}
+		Arr[13]=t2.x;
+		pos-=a;//
+
+		a=83047723206LL;
+		t2.x=6;
+		while(a>pos){a-=13841287201LL;--t2.x;}
+		Arr[12]=t2.x;
+		pos-=a;//
+
+		a=11863960458LL;
+		t2.x=6;
+		while(a>pos){a-=1977326743LL;--t2.x;}
+		Arr[11]=t2.x;
+		pos-=a;//
+
+		a=1694851494LL;
+		t2.x=6;
+		while(a>pos){a-=282475249LL;--t2.x;}
+		Arr[10]=t2.x;
+		pos-=a;//
+
+		a=242121642LL;
+		t2.x=6;
+		while(a>pos){a-=40353607LL;--t2.x;}
+		Arr[9]=t2.x;
+		pos-=a;//
+
+		a=34588806LL;
+		t2.x=6;
+		while(a>pos){a-=5764801LL;--t2.x;}
+		Arr[8]=t2.x;
+		pos-=a;//
+
+		a=4941258LL;
+		t2.x=6;
+		while(a>pos){a-=823543LL;--t2.x;}
+		Arr[7]=t2.x;
+		pos-=a;//
+
+		a=705894LL;
+		t2.x=6;
+		while(a>pos){a-=117649LL;--t2.x;}
+		Arr[6]=t2.x;
+		pos-=a;//
+
+		a=100842LL;
+		t2.x=6;
+		while(a>pos){a-=16807LL;--t2.x;}
+		Arr[5]=t2.x;
+		pos-=a;//
+
+		a=14406LL;
+		t2.x=6;
+		while(a>pos){a-=2401LL;--t2.x;}
+		Arr[4]=t2.x;
+		pos-=a;//
+
+		a=2058LL;
+		t2.x=6;
+		while(a>pos){a-=343LL;--t2.x;}
+		Arr[3]=t2.x;
+		pos-=a;//
+
+		a=294LL;
+		t2.x=6;
+		while(a>pos){a-=49LL;--t2.x;}
+		Arr[2]=t2.x;
+		pos-=a;//
+
+		a=42LL;
+		t2.x=6;
+		while(a>pos){a-=7LL;--t2.x;}
+		Arr[1]=t2.x;
+		pos-=a;//
+		
+		Arr[0]=int(pos);//
 
 		jj=int(Arr[0]+Arr[1]+Arr[2]+Arr[3]==10)+int(Arr[4]+Arr[5]+Arr[6]+Arr[7]==10)+
 			int(Arr[8]+Arr[9]+Arr[10]+Arr[11]==10)+int(Arr[12]+Arr[13]+Arr[14]+Arr[15]==10)+
@@ -117,6 +202,7 @@ __global__ void GPU_step0(int *best_val, long long *bnum){
 			mask_as_int2=*reinterpret_cast<int2 *>(&pos);
 		}
 	}
+
 	for(ii=16;ii>0;ii>>=1){
 		jj=__shfl(tot,warpIndex+ii);
 		t2.x=__shfl(mask_as_int2.x,warpIndex+ii);
@@ -126,6 +212,7 @@ __global__ void GPU_step0(int *best_val, long long *bnum){
 			mask_as_int2=t2;
 		}
 	}
+
 	if(warpIndex==0){
 		blk_best[threadIdx.x>>5]=tot;
 		mask_val[threadIdx.x>>5]=mask_as_int2;
@@ -184,13 +271,98 @@ __global__ void last_step(int *best_val, long long *bnum,const long long rem_sta
 
 	for(;(offset+adj)<bound;ii++){
 		pos=offset+adj;
-		for(jj=15;jj>0;jj--){
-			a=6LL;
-			while(a*POWARR[jj]>pos){a--;}
-			Arr[jj]=int(a);
-			pos-=a*POWARR[jj];
-		}
-		Arr[0]=int(pos);
+
+		a=28485369059658LL;
+		t2.x=6;
+		while(a>pos){a-=4747561509943LL;--t2.x;}
+		Arr[15]=t2.x;
+		pos-=a;//
+
+		a=4069338437094LL;
+		t2.x=6;
+		while(a>pos){a-=678223072849LL;--t2.x;}
+		Arr[14]=t2.x;
+		pos-=a;//
+
+		a=581334062442LL;
+		t2.x=6;
+		while(a>pos){a-=96889010407LL;--t2.x;}
+		Arr[13]=t2.x;
+		pos-=a;//
+
+		a=83047723206LL;
+		t2.x=6;
+		while(a>pos){a-=13841287201LL;--t2.x;}
+		Arr[12]=t2.x;
+		pos-=a;//
+
+		a=11863960458LL;
+		t2.x=6;
+		while(a>pos){a-=1977326743LL;--t2.x;}
+		Arr[11]=t2.x;
+		pos-=a;//
+
+		a=1694851494LL;
+		t2.x=6;
+		while(a>pos){a-=282475249LL;--t2.x;}
+		Arr[10]=t2.x;
+		pos-=a;//
+
+		a=242121642LL;
+		t2.x=6;
+		while(a>pos){a-=40353607LL;--t2.x;}
+		Arr[9]=t2.x;
+		pos-=a;//
+
+		a=34588806LL;
+		t2.x=6;
+		while(a>pos){a-=5764801LL;--t2.x;}
+		Arr[8]=t2.x;
+		pos-=a;//
+
+		a=4941258LL;
+		t2.x=6;
+		while(a>pos){a-=823543LL;--t2.x;}
+		Arr[7]=t2.x;
+		pos-=a;//
+
+		a=705894LL;
+		t2.x=6;
+		while(a>pos){a-=117649LL;--t2.x;}
+		Arr[6]=t2.x;
+		pos-=a;//
+
+		a=100842LL;
+		t2.x=6;
+		while(a>pos){a-=16807LL;--t2.x;}
+		Arr[5]=t2.x;
+		pos-=a;//
+
+		a=14406LL;
+		t2.x=6;
+		while(a>pos){a-=2401LL;--t2.x;}
+		Arr[4]=t2.x;
+		pos-=a;//
+
+		a=2058LL;
+		t2.x=6;
+		while(a>pos){a-=343LL;--t2.x;}
+		Arr[3]=t2.x;
+		pos-=a;//
+
+		a=294LL;
+		t2.x=6;
+		while(a>pos){a-=49LL;--t2.x;}
+		Arr[2]=t2.x;
+		pos-=a;//
+
+		a=42LL;
+		t2.x=6;
+		while(a>pos){a-=7LL;--t2.x;}
+		Arr[1]=t2.x;
+		pos-=a;//
+		
+		Arr[0]=int(pos);//
 
 		jj=int(Arr[0]+Arr[1]+Arr[2]+Arr[3]==10)+int(Arr[4]+Arr[5]+Arr[6]+Arr[7]==10)+
 			int(Arr[8]+Arr[9]+Arr[10]+Arr[11]==10)+int(Arr[12]+Arr[13]+Arr[14]+Arr[15]==10)+
@@ -205,6 +377,7 @@ __global__ void last_step(int *best_val, long long *bnum,const long long rem_sta
 		}
 		adj=(long long(ii)<<8LL);
 	}
+
 	adj=0LL;
 	for(ii=1;(threadIdx.x+int(adj))<num_blox;ii++){
 		jj=(threadIdx.x+int(adj));
@@ -215,6 +388,7 @@ __global__ void last_step(int *best_val, long long *bnum,const long long rem_sta
 		}
 		adj=(long long(ii)<<8LL);
 	}
+
 	for(ii=16;ii>0;ii>>=1){
 		jj=__shfl(tot,warpIndex+ii);
 		t2.x=__shfl(mask_as_int2.x,warpIndex+ii);
@@ -224,6 +398,7 @@ __global__ void last_step(int *best_val, long long *bnum,const long long rem_sta
 			mask_as_int2=t2;
 		}
 	}
+
 	if(warpIndex==0){
 		blk_best[threadIdx.x>>5]=tot;
 		mask_val[threadIdx.x>>5]=mask_as_int2;
@@ -269,12 +444,9 @@ __global__ void last_step(int *best_val, long long *bnum,const long long rem_sta
 
 
 int main(){
-	char ch;
-	srand(time(NULL));
 
-	cudaError_t err=cudaDeviceReset();
-	if(err!=cudaSuccess){printf("%s in %s at line %d\n",cudaGetErrorString(err),__FILE__,__LINE__);}
 
+	cudaError_t err;
 
 	POW_SEVEN_ARR[0]=1LL;
 	for(int i=1;i<=16;i++){
@@ -304,8 +476,6 @@ int main(){
 	err=cudaMalloc((void**)&bnum,num_blx*sizeof(long long));
 	if(err!=cudaSuccess){printf("%s in %s at line %d\n",cudaGetErrorString(err),__FILE__,__LINE__);}
 
-	err=cudaMemcpyToSymbol(POWARR,POW_SEVEN_ARR,17*sizeof(long long));
-	if(err!=cudaSuccess){printf("%s in %s at line %d\n",cudaGetErrorString(err),__FILE__,__LINE__);}
 	
     UINT wTimerRes = 0;
 	DWORD GPU_time=0;
@@ -346,7 +516,10 @@ int main(){
 
 
 	free(Board);
-	cin>>ch;
+
+	err=cudaDeviceReset();
+	if(err!=cudaSuccess){printf("%s in %s at line %d\n",cudaGetErrorString(err),__FILE__,__LINE__);}
+
 	return 0;
 }
 
