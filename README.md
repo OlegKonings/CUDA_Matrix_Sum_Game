@@ -9,33 +9,23 @@ Goal = for a matrix of size 4x4 , with each location having the possible values 
 Number of possible arrangements = 7^16 = 33,232,930,569,601.
 
 
-old version:
-
-__Running time for GTX 780ti Windows 7__ = 1071758 ms or __17.86 minutes__
-
-new version: 
-
-__Running time for GTX 980 Windows 7__ =                 <__10.4 minutes__
-
+__Running time for GTX 980 Windows 7__ =                 =__10.284 minutes__
 
 
 Example output:
 
-GPU timing= 1071758
+GPU timing= 617089
 
 Optimal score = 10
- 
-board= 
 
-1  0  4  5
+board=
 
-4  4  1  1 
+1 0 4 5
+4 4 1 1
+1 0 5 4
+4 6 0 0
 
-1  0  5  4 
-
-4  6  0  0 
-
-number of arrangement = 646027679200
+number of arrangement= 646027679200
 
 
 NOTE: There is more than one 'optimal' configuration, so this code should always return a valid configuration for the global optimum, but not may not always return the exact same configuration if there is more than one. A filter can be implemented which caches the 'first'. Obviously it is possible to have all rows, columns and 4-element diagonals sum to 10, so the answer is '10'.
