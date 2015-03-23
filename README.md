@@ -21,9 +21,13 @@ Optimal score = 10
 board=
 
 1 0 4 5
+
 4 4 1 1
+
 1 0 5 4
+
 4 6 0 0
+
 
 number of arrangement= 646027679200
 
