@@ -39,7 +39,7 @@ void DestroyMMTimer(UINT wTimerRes, bool init);
 
 inline int get_adj_size(const long long num_elem){
 	double p=double(num_elem)/double(MEGA);
-	if(p>0.8)return 5;
+	if(p>0.8)return 6;
 	else if(p>0.6)return 4;
 	else if(p>0.4)return 3;
 	else if(p>0.2)return 2;
@@ -464,6 +464,7 @@ int main(){
 	const int temp_blocks_sz=get_dynamic_block_size(adj_size,blockSize0);
 	const int num_blx=int(range/long long(temp_blocks_sz));
 	const long long rem_start=range-(range-long long(num_blx)*long long(temp_blocks_sz));
+	std::cout<<"\nnum_blx= "<<num_blx<<'\n';
 
 	int GPU_answer=0;
 	long long GPU_board=0LL;
