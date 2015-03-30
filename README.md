@@ -1,7 +1,7 @@
 CUDA_Matrix_Sum_Game
 ====================
 
-4x4 matrix sum game
+4x4 matrix sum game, or "Magic Square" problem
 
 
 Goal = for a matrix of size 4x4 , with each location having the possible values of 0-6 (inclusive), what configurations result in the maximum number of 4 columns\rows\diagonals which sum to the value of 10?
