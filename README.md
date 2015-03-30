@@ -9,7 +9,7 @@ Goal = for a matrix of size 4x4 , with each location having the possible values 
 Number of possible arrangements = 7^16 = 33,232,930,569,601.
 
 
-__Running time for single 1.0 Ghz GTX Titan X Windows 7__ =                 =__4.29 minutes__
+Running time for single 1.0 Ghz GTX Titan X Windows 7 =                 =__4.29 minutes__
 
 
 Example output:
