@@ -14,7 +14,7 @@ Full running time for single 1.0 Ghz GTX Titan X Windows 7                  = __
 
 Example output:
 
-GPU timing= 257871
+GPU timing= 257871 ms
 
 Optimal score = 10
 
