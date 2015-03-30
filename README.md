@@ -6,9 +6,9 @@ CUDA_Matrix_Sum_Game
 
 Goal = for a matrix of size 4x4 , with each location having the possible values of 0-6 (inclusive), what configurations result in the maximum number of 4 columns\rows\diagonals which sum to the value of 10?
 
-Number of possible arrangements = 7^16 = 33,232,930,569,601. 
+Number of possible arrangements = 7^16 = __33,232,930,569,601__
 
-GPU approach: Generate every distinct 33+ trillion possible game board arrangement, evaluate, cache the 'best' and return that answer plus a board arrangement reposible for that answer.
+__GPU approach:__ Generate every distinct 33+ trillion possible game board arrangement, evaluate, cache the 'best' and return that answer plus a board arrangement reposible for that answer.
 (there may be more than one configuration which achieves the objective)
 
 
