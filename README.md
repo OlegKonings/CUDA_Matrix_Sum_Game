@@ -8,6 +8,9 @@ Goal = for a matrix of size 4x4 , with each location having the possible values 
 
 Number of possible arrangements = 7^16 = 33,232,930,569,601. 
 
+GPU approach: Generate every distinct 33+ trillion possible game board arrangement, evaluate, cache the 'best' and return that answer plus a board arrangement reposible for that answer.
+(there may be more than one configuration which achieves the objective)
+
 
 Full running time for single 1.0 Ghz GTX Titan X Windows 7                  = __4.29 minutes__
 
