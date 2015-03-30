@@ -9,7 +9,7 @@ Goal = for a matrix of size 4x4 , with each location having the possible values 
 Number of possible arrangements = 7^16 = 33,232,930,569,601.
 
 
-Full running time for single 1.0 Ghz GTX Titan X Windows 7                  =__4.29 minutes__
+Full running time for single 1.0 Ghz GTX Titan X Windows 7                  = __4.29 minutes__
 
 
 Example output:
@@ -32,6 +32,8 @@ number = 646027679200
 
 
 NOTE: There is more than one 'optimal' configuration, so this code should always return a valid configuration for the global optimum, but not may not always return the exact same configuration if there is more than one. A filter can be implemented which caches the 'first'. Obviously it is possible to have all rows, columns and 4-element diagonals sum to 10, so the answer is '10'.
+
+Stay tuned for 2 GTX 980 GPU solution which breaks the 3 minute mark!
 
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
