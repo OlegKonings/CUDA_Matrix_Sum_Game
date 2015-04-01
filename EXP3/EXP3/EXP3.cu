@@ -23,6 +23,7 @@ using namespace std;
 
 typedef long long ll;
 
+
 #define _DTH cudaMemcpyDeviceToHost
 #define _DTD cudaMemcpyDeviceToDevice
 #define _HTD cudaMemcpyHostToDevice
@@ -91,104 +92,44 @@ __global__ void GPU_step0(int *best_val, long long *bnum){
      __shared__ int2 mask_val[8];
 
 	int Arr[16];
-	long long pos,a;
+	long long pos;//a
 	int ii=0,jj,tot=0;
 	int2 mask_as_int2,t2;
 
 	for(;ii<reps;ii++){
 		pos=offset+long long(ii*THREADS);
-
-		a=28485369059658LL;
-		t2.x=6;
-		while(a>pos){a-=4747561509943LL;--t2.x;}
-		Arr[15]=t2.x;
-		pos-=a;//
-
-		a=4069338437094LL;
-		t2.x=6;
-		while(a>pos){a-=678223072849LL;--t2.x;}
-		Arr[14]=t2.x;
-		pos-=a;//
-
-		a=581334062442LL;
-		t2.x=6;
-		while(a>pos){a-=96889010407LL;--t2.x;}
-		Arr[13]=t2.x;
-		pos-=a;//
-
-		a=83047723206LL;
-		t2.x=6;
-		while(a>pos){a-=13841287201LL;--t2.x;}
-		Arr[12]=t2.x;
-		pos-=a;//
-
-		a=11863960458LL;
-		t2.x=6;
-		while(a>pos){a-=1977326743LL;--t2.x;}
-		Arr[11]=t2.x;
-		pos-=a;//
-
-		a=1694851494LL;
-		t2.x=6;
-		while(a>pos){a-=282475249LL;--t2.x;}
-		Arr[10]=t2.x;
-		pos-=a;//
-
-		a=242121642LL;
-		t2.x=6;
-		while(a>pos){a-=40353607LL;--t2.x;}
-		Arr[9]=t2.x;
-		pos-=a;//
-
-		a=34588806LL;
-		t2.x=6;
-		while(a>pos){a-=5764801LL;--t2.x;}
-		Arr[8]=t2.x;
-		pos-=a;//
-
-		a=4941258LL;
-		t2.x=6;
-		while(a>pos){a-=823543LL;--t2.x;}
-		Arr[7]=t2.x;
-		pos-=a;//
-
-		a=705894LL;
-		t2.x=6;
-		while(a>pos){a-=117649LL;--t2.x;}
-		Arr[6]=t2.x;
-		pos-=a;//
-
-		a=100842LL;
-		t2.x=6;
-		while(a>pos){a-=16807LL;--t2.x;}
-		Arr[5]=t2.x;
-		pos-=a;//
-
-		a=14406LL;
-		t2.x=6;
-		while(a>pos){a-=2401LL;--t2.x;}
-		Arr[4]=t2.x;
-		pos-=a;//
-
-		a=2058LL;
-		t2.x=6;
-		while(a>pos){a-=343LL;--t2.x;}
-		Arr[3]=t2.x;
-		pos-=a;//
-
-		a=294LL;
-		t2.x=6;
-		while(a>pos){a-=49LL;--t2.x;}
-		Arr[2]=t2.x;
-		pos-=a;//
-
-		a=42LL;
-		t2.x=6;
-		while(a>pos){a-=7LL;--t2.x;}
-		Arr[1]=t2.x;
-		pos-=a;//
-		
-		Arr[0]=int(pos);//
+		Arr[15]=t2.x=int(pos/4747561509943LL);
+		pos-=long long(t2.x)*4747561509943LL;
+		Arr[14]=t2.x=int(pos/678223072849LL);
+		pos-=long long(t2.x)*678223072849LL;
+		Arr[13]=t2.x=int(pos/96889010407LL);
+		pos-=long long(t2.x)*96889010407LL;
+		Arr[12]=t2.x=int(pos/13841287201LL);
+		pos-=long long(t2.x)*13841287201LL;
+		Arr[11]=t2.x=int(pos/1977326743LL);
+		pos-=long long(t2.x)*1977326743LL;
+		t2.y=int(pos);
+		Arr[10]=t2.x=t2.y/282475249;
+		t2.y-=t2.x*282475249;
+		Arr[9]=t2.x=t2.y/40353607;
+		t2.y-=t2.x*40353607;
+		Arr[8]=t2.x=t2.y/5764801;
+		t2.y-=t2.x*5764801;
+		Arr[7]=t2.x=t2.y/823543;
+		t2.y-=t2.x*823543;
+		Arr[6]=t2.x=t2.y/117649;
+		t2.y-=t2.x*117649;
+		Arr[5]=t2.x=t2.y/16807;
+		t2.y-=t2.x*16807;
+		Arr[4]=t2.x=t2.y/2401;
+		t2.y-=t2.x*2401;
+		Arr[3]=t2.x=t2.y/343;
+		t2.y-=t2.x*343;
+		Arr[2]=t2.x=t2.y/49;
+		t2.y-=t2.x*49;
+		Arr[1]=t2.x=t2.y/7;
+		t2.y-=t2.x*7;	
+		Arr[0]=t2.y;
 
 		jj=int(Arr[0]+Arr[1]+Arr[2]+Arr[3]==10)+int(Arr[4]+Arr[5]+Arr[6]+Arr[7]==10)+
 			int(Arr[8]+Arr[9]+Arr[10]+Arr[11]==10)+int(Arr[12]+Arr[13]+Arr[14]+Arr[15]==10)+
@@ -265,104 +206,45 @@ __global__ void last_step(int *best_val, long long *bnum,const long long rem_sta
     __shared__ int2 mask_val[8];
 
 	int Arr[16];
-	long long pos,a,adj=0LL;
+	long long pos,adj=0LL;
 	int ii=1,jj,tot=0;
 	int2 mask_as_int2,t2;
 
 	for(;(offset+adj)<bound;ii++){
 		pos=offset+adj;
 
-		a=28485369059658LL;
-		t2.x=6;
-		while(a>pos){a-=4747561509943LL;--t2.x;}
-		Arr[15]=t2.x;
-		pos-=a;//
-
-		a=4069338437094LL;
-		t2.x=6;
-		while(a>pos){a-=678223072849LL;--t2.x;}
-		Arr[14]=t2.x;
-		pos-=a;//
-
-		a=581334062442LL;
-		t2.x=6;
-		while(a>pos){a-=96889010407LL;--t2.x;}
-		Arr[13]=t2.x;
-		pos-=a;//
-
-		a=83047723206LL;
-		t2.x=6;
-		while(a>pos){a-=13841287201LL;--t2.x;}
-		Arr[12]=t2.x;
-		pos-=a;//
-
-		a=11863960458LL;
-		t2.x=6;
-		while(a>pos){a-=1977326743LL;--t2.x;}
-		Arr[11]=t2.x;
-		pos-=a;//
-
-		a=1694851494LL;
-		t2.x=6;
-		while(a>pos){a-=282475249LL;--t2.x;}
-		Arr[10]=t2.x;
-		pos-=a;//
-
-		a=242121642LL;
-		t2.x=6;
-		while(a>pos){a-=40353607LL;--t2.x;}
-		Arr[9]=t2.x;
-		pos-=a;//
-
-		a=34588806LL;
-		t2.x=6;
-		while(a>pos){a-=5764801LL;--t2.x;}
-		Arr[8]=t2.x;
-		pos-=a;//
-
-		a=4941258LL;
-		t2.x=6;
-		while(a>pos){a-=823543LL;--t2.x;}
-		Arr[7]=t2.x;
-		pos-=a;//
-
-		a=705894LL;
-		t2.x=6;
-		while(a>pos){a-=117649LL;--t2.x;}
-		Arr[6]=t2.x;
-		pos-=a;//
-
-		a=100842LL;
-		t2.x=6;
-		while(a>pos){a-=16807LL;--t2.x;}
-		Arr[5]=t2.x;
-		pos-=a;//
-
-		a=14406LL;
-		t2.x=6;
-		while(a>pos){a-=2401LL;--t2.x;}
-		Arr[4]=t2.x;
-		pos-=a;//
-
-		a=2058LL;
-		t2.x=6;
-		while(a>pos){a-=343LL;--t2.x;}
-		Arr[3]=t2.x;
-		pos-=a;//
-
-		a=294LL;
-		t2.x=6;
-		while(a>pos){a-=49LL;--t2.x;}
-		Arr[2]=t2.x;
-		pos-=a;//
-
-		a=42LL;
-		t2.x=6;
-		while(a>pos){a-=7LL;--t2.x;}
-		Arr[1]=t2.x;
-		pos-=a;//
-		
-		Arr[0]=int(pos);//
+		Arr[15]=t2.x=int(pos/4747561509943LL);
+		pos-=long long(t2.x)*4747561509943LL;
+		Arr[14]=t2.x=int(pos/678223072849LL);
+		pos-=long long(t2.x)*678223072849LL;
+		Arr[13]=t2.x=int(pos/96889010407LL);
+		pos-=long long(t2.x)*96889010407LL;
+		Arr[12]=t2.x=int(pos/13841287201LL);
+		pos-=long long(t2.x)*13841287201LL;
+		Arr[11]=t2.x=int(pos/1977326743LL);
+		pos-=long long(t2.x)*1977326743LL;
+		t2.y=int(pos);
+		Arr[10]=t2.x=t2.y/282475249;
+		t2.y-=t2.x*282475249;
+		Arr[9]=t2.x=t2.y/40353607;
+		t2.y-=t2.x*40353607;
+		Arr[8]=t2.x=t2.y/5764801;
+		t2.y-=t2.x*5764801;
+		Arr[7]=t2.x=t2.y/823543;
+		t2.y-=t2.x*823543;
+		Arr[6]=t2.x=t2.y/117649;
+		t2.y-=t2.x*117649;
+		Arr[5]=t2.x=t2.y/16807;
+		t2.y-=t2.x*16807;
+		Arr[4]=t2.x=t2.y/2401;
+		t2.y-=t2.x*2401;
+		Arr[3]=t2.x=t2.y/343;
+		t2.y-=t2.x*343;
+		Arr[2]=t2.x=t2.y/49;
+		t2.y-=t2.x*49;
+		Arr[1]=t2.x=t2.y/7;
+		t2.y-=t2.x*7;	
+		Arr[0]=t2.y;
 
 		jj=int(Arr[0]+Arr[1]+Arr[2]+Arr[3]==10)+int(Arr[4]+Arr[5]+Arr[6]+Arr[7]==10)+
 			int(Arr[8]+Arr[9]+Arr[10]+Arr[11]==10)+int(Arr[12]+Arr[13]+Arr[14]+Arr[15]==10)+
