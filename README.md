@@ -1,8 +1,7 @@
 CUDA_Matrix_Sum_Game
 ====================
 
-4x4 matrix sum game, or "Magic Square" problem
-
+4x4 matrix sum game, or "Magic Square" problem implemented in CUDA. 
 
 Goal = for a matrix of size 4x4 , with each location having the possible values of 0-6 (inclusive), what configurations result in the maximum number of 4 columns\rows\diagonals which sum to the value of 10?
 
@@ -11,6 +10,7 @@ Number of possible arrangements = 7^16 = __33,232,930,569,601__
 __GPU approach:__ Generate every distinct 33+ trillion possible game board arrangement, evaluate, cache the 'best' and return that answer plus a board arrangement reposible for that answer.
 (there may be more than one configuration which achieves the objective)
 
+Compile as 5.2 with --use_fast_math and max_register=32
 
 Full running time for single 1.0 Ghz GTX Titan X Windows 7                  = __197.9 seconds__
 
