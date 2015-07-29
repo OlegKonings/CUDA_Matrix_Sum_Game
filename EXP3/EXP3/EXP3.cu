@@ -254,7 +254,7 @@ __global__ void last_step(int *best_val, long long *bnum,const long long rem_sta
 
 		if(jj>tot){
 			tot=jj;
-			pos=offset+long long(ii*THREADS);
+			pos=offset+adj;
 			mask_as_int2=*reinterpret_cast<int2 *>(&pos);
 		}
 		adj=(long long(ii)<<8LL);
