@@ -48,3 +48,7 @@ Stay tuned for 2 GTX 980 GPU solution which breaks the 3 minute mark!
   ga('send', 'pageview');
 
 </script>
+
+see the dual-gpu version here:
+
+https://sites.google.com/site/gamingrigvsquantumcomputer/
