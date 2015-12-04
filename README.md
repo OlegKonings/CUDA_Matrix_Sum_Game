@@ -12,7 +12,7 @@ __GPU approach:__ Generate every distinct 33+ trillion possible game board arran
 
 Compile as 5.2 with --use_fast_math and max_register=32
 
-Full running time for single 1.0 Ghz GTX Titan X Windows 7                  = __197.9 seconds__
+Full running time for single 1.0 Ghz GTX Titan X Windows 7                  = __181.9 seconds__
 
 
 Example output:
